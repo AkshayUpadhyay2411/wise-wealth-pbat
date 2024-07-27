@@ -89,7 +89,7 @@ For each relevant asset type -
 - If the individual invests in short durations, highlight that the recent increase in short term capital gain taxes discourages short term trading, and long term investments may be more beneficial with respect to taxation. 
 
 
-### 5. Impact on Liabilities
+### Impact on Liabilities
 Skip section if there are no liabilities. 
 Only mention information about the provided liability types provided by the individual. 
 
@@ -297,8 +297,181 @@ incomes over ₹5 crore, down from 37%.
 - **For other income:**
 - Deductions ≤ ₹1.5 lakhs: New regime beneficial.
 - Deductions > ₹3.75 lakhs: Old regime beneficial.
-```
+# Tax Regime Overview
 
+## New Tax Regime (From FY 2024-25)
+
+### Income Tax Slabs
+- **Income up to ₹3,00,000:** No tax
+- **Income from ₹3,00,001 to ₹6,00,000:** 5%
+- **Income from ₹6,00,001 to ₹9,00,000:** 10%
+- **Income from ₹9,00,001 to ₹12,00,000:** 15%
+- **Income from ₹12,00,001 to ₹15,00,000:** 20%
+- **Income above ₹15,00,000:** 30%
+
+### Deductions and Rebates
+- **Standard Deduction:** ₹75,000 (increased from ₹50,000 last year)
+- **Rebate eligibility under Section 87A:** Increased to ₹7 lakhs (₹25,000 rebate)
+
+### Surcharge
+- **Maximum Surcharge Rate:** Reduced from 37% to 25% for incomes over ₹5 crore
+
+## Old Tax Regime
+
+### Income Tax Slabs
+- **Income up to ₹2,50,000:** No tax
+- **Income from ₹2,50,001 to ₹5,00,000:** 5%
+- **Income from ₹5,00,001 to ₹10,00,000:** 20%
+- **Income above ₹10,00,000:** 30%
+
+### Deductions and Exemptions
+- **Standard Deduction:** ₹50,000
+- **Deductions and Exemptions:** Various, including HRA, LTA, 80C (up to ₹1.5 lakhs), 80D, 80E, etc.
+
+## Key Differences
+
+- **Income Tax Slabs:** The new regime offers a higher threshold for no tax (up to ₹3,00,000) compared to the old regime (up to ₹2,50,000). The new regime has more slabs with lower rates up to ₹15,00,000, making it simpler and potentially more beneficial for those with lower deductions.
+- **Deductions and Exemptions:** The old regime allows a variety of deductions and exemptions such as HRA, LTA, standard deduction, 80C, 80D, etc. The new regime largely removes these, offering only the standard deduction and a higher rebate eligibility.
+- **Surcharge:** The new regime has a reduced maximum surcharge rate of 25% for incomes over ₹5 crore, down from 37%.
+
+## Choosing Between the Two Regimes
+
+### Breakeven Threshold
+- **For salary income:**
+  - Income of ₹7,00,000: Benefit in the new regime if deductions are less than ₹1,50,000.
+  - Income of ₹10,00,000: Benefit in the old regime if deductions exceed ₹2,50,000.
+  - Income of ₹15,50,000: Benefit in the old regime if deductions exceed ₹3,75,000.
+
+- **For other income:**
+  - Deductions ≤ ₹1.5 lakhs: New regime beneficial.
+  - Deductions > ₹3.75 lakhs: Old regime beneficial.
+  - Deductions between ₹1.5 to ₹3.75 lakhs: Depends on the specific income level.
+
+## Senior Citizens
+
+### Old Regime
+- **Senior Citizens (60-80 years):** Exemption up to ₹3,00,000.
+- **Super Senior Citizens (above 80 years):** Exemption up to ₹5,00,000.
+
+### New Regime
+- Same slabs as general taxpayers, but with higher standard deduction and rebate eligibility.
+
+
+## Announcements for Professionals using presumptive taxation
+###Threshold increase
+- The threshold for professionals eligible for presumptive taxation has been increased from ₹50 lakh to ₹75 lakh. This aims to simplify tax compliance for a larger number of professionals by allowing them to declare income at a prescribed rate without maintaining detailed accounts​ (Taxscan)​​ (Tax Guru)​.
+### Turnover Limit for Businesses
+- For retail businesses under Section 44AD, the turnover limit has been increased from ₹2 crore to ₹3 crore. This change is designed to extend the benefits of the presumptive taxation scheme to more small and medium-sized enterprises​ (Taxscan)​.
+
+
+## Capital Gains Tax Revisions (Effective from 23rd July 2024)
+
+### Minimum Criteria
+- **Criteria for Taxation:** Increased from ₹1,00,000 to ₹1,25,000.
+
+### Asset Types
+
+| Asset Type                  | STCG (Earlier) | STCG (Revised) | Holding Period | LTCG (Earlier) | LTCG (Revised) |
+|-----------------------------|----------------|----------------|----------------|----------------|----------------|
+| **Listed stocks and equity MFs/ETFs** | 15%            | 20%            | 12 months      | 10%            | 12.50%         |
+| **Unlisted shares**         | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
+| **Foreign shares**          | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
+| **Debt MFs and ETFs**       | Slab rate      | Slab rate      | NA             | Slab rate      | Slab rate      |
+| **Listed bonds**            | Slab rate      | 20%            | 12 months      | 10%            | 12.50%         |
+| **REITs and InVITs**        | 15%            | 20%            | 12 months      | 10%            | 12.50%         |
+| **Physical real estate**    | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
+| **Gold/silver ETFs**        | Slab rate      | 20%            | 12 months      | Slab rate      | 12.50%         |
+| **Physical gold**           | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
+The recent Budget 2024 announcement introduces significant changes to the tax treatment of ESOP (Employee Stock Ownership Plan) buybacks, impacting startup employees and investors. This is one of the common sources of income for startup employees, and founders.
+
+### Key Highlights:
+
+**New Tax Treatment**:
+- Payouts from ESOP buybacks will be treated as dividend income rather than capital gains. - This change subjects employees to potentially higher tax liabilities, as dividend income is
+taxed according to the individual's income tax slab rates.
+
+**Previous Tax Regime**:
+- Previously, companies paid a 20% tax on share buybacks, and employees faced capital
+gains tax when selling shares.
+- For listed shares held over one year, the capital gains tax was 10% without indexation
+benefits, while unlisted shares held over two years attracted a 20% tax with indexation.
+
+**Effective Date**:
+- The new tax rules will be effective from October 1, 2024.
+- This change aims to increase government revenue but could reduce the attractiveness of
+ESOPs as a compensation tool for startups.
+
+**Employee Impact**:
+- Employees exercising their stock options will still pay perquisite tax on the difference
+between the market value and the exercise price.
+- Upon buyback, the proceeds will now be taxed as dividend income, leading to a higher
+cumulative tax burden compared to the previous capital gains tax structure.
+
+**Company Impact**:
+- Startups may need to rethink their compensation strategies, considering the increased tax
+burden on employees.
+- The attractiveness of ESOPs as a tool to attract and retain talent might diminish.
+
+**Market Reaction**:
+- The startup ecosystem has expressed concerns, suggesting that the new tax regime could
+dampen employee morale and reduce the financial benefits of ESOPs.
+- Industry experts are advocating for reconsideration or amendments to balance government
+revenue goals with startup growth and employee benefits.
+
+**Comparison with Global Standards**:
+- The new policy diverges from global practices where ESOP taxation is typically more
+favorable, aiming to encourage employee ownership and participation. 8. **Future Considerations**:
+ - There may be further discussions and potential lobbying for policy amendments to mitigate the adverse effects on the startup sector.
+- Companies might explore alternative incentive structures to maintain employee motivation and satisfaction.
+
+### Conclusion:
+The Budget 2024 proposal to tax ESOP buyback proceeds as dividend income represents a significant shift from the previous capital gains tax treatment, potentially increasing the tax burden for startup employees. While aimed at increasing government revenue, this change could impact the attractiveness of ESOPs and the overall startup ecosystem. Industry stakeholders may seek amendments to ensure a balanced approach that supports both government objectives and the growth of the startup sector.
+—--------
+The Budget 2024 has introduced a significant change by removing the angel tax, a move aimed at supporting startups and fostering innovation. This information is relevant for startup founders and equity holders of unlisted companies.
+Below is a detailed summary of this development:
+
+### Key Highlights:
+
+**Angel Tax Removal**:
+- The angel tax, under Section 56(2)(viib) of the Income Tax Act, taxed investments in startups
+that were received at a premium over the fair market value.
+- Initially introduced in 2012 to curb money laundering through excessive valuations, it had
+unintended consequences for genuine startup investments.
+
+**Impact on Startups**:
+- The removal of the angel tax is expected to boost the startup ecosystem by eliminating a
+significant regulatory hurdle.
+- Startups will benefit from increased investments, as investors will no longer face the
+additional tax burden on premiums paid above fair market value.
+
+**Investor Sentiment**:
+- This change is likely to restore investor confidence, making it easier for startups to attract
+funding from angel investors and venture capitalists.
+- Enhanced investor sentiment can lead to a more vibrant and dynamic startup landscape,
+encouraging innovation and entrepreneurship.
+
+**Regulatory Clarity**:
+- The removal provides much-needed regulatory clarity, simplifying the tax environment for
+both startups and investors.
+- This clarity can lead to a smoother investment process, fostering a more conducive
+environment for business growth.
+
+**Government’s Objective**:
+- The decision aligns with the government’s broader objective of promoting a startup-friendly
+ecosystem and driving economic growth through innovation.
+- By removing the angel tax, the government aims to create a more favorable environment for
+startups to thrive.
+**Broader Economic Impact**:
+- The boost in startup activity can have a ripple effect on job creation, technological
+advancements, and overall economic development.
+- By supporting startups, the government is fostering a culture of innovation that can drive
+long-term economic benefits.
+**Conclusion**:
+- The scrapping of the angel tax in Budget 2024 is a strategic move to support the startup
+sector.
+- It addresses the concerns of the startup community and investors, paving the way for a
+more robust and dynamic startup ecosystem in India.
+```
 """
 
 
@@ -346,6 +519,7 @@ if st.session_state.step == 1:
     
         # Define the questions
         q1 = st.multiselect("What of these assets are you invested in or plan to invest in? (Multi-select ones that apply)", [
+                        "I don’t invest currently",
                         "Listed stocks and equity MFs/ETFs",
                         "Unlisted shares",
                         "Foreign shares",
@@ -354,9 +528,9 @@ if st.session_state.step == 1:
                         "REITs and InVITs",
                         "Physical real estate",
                         "Gold/silver ETFs",
-                        "Physical gold",
-                        "Cryptocurrency",
-                        "I don’t invest currently"
+                        "Physical Gold",
+                        "SGBs(Sovereign Gold Bonds",
+                        "Cryptocurrency"
                     ],
                     help="Will help us identify key announcements impacting your investments"
                     )
@@ -370,6 +544,7 @@ if st.session_state.step == 1:
                     )
 
         q3 = st.multiselect("Which of these sectors represents your investment interests?",  [
+                        "No Specific Interests",
                         "Infrastructure",
                         "Renewable Energy",
                         "Healthcare",
@@ -387,7 +562,7 @@ if st.session_state.step == 1:
                 )
 
         q4 = st.multiselect("Which of these statements best represents your income sources? (Multi-select that apply) *", [ 
-                        "I receive salary",
+                        "I Receive Salary",
                         "I run a Small or Medium size business (SME) and earn profits",
                         "I run a startup and hold equity",
                         "I receive or have received ESOPs (Employee Stock Options) from my employer",
@@ -397,12 +572,13 @@ if st.session_state.step == 1:
                 )
 
         q5 = st.multiselect("Do you have any liabilities?",
-                    [
+                    [    
+                        ""I hold no loans",
                         "Home loan",
                         "Education or skilling loan",
                         "Business Loan",
                         "Other general Loans",
-                        "I hold no loans"
+                        
                     ],
                     help="Will help us identify key announcements providing relief or affecting interest payments"
                 )
@@ -441,6 +617,10 @@ elif st.session_state.step == 2:
     
     name = st.text_input("Name")
     phone = st.text_input("Phone Number")
+
+    if st.button("🔁 Restart"):
+        st.session_state.step == 1
+        st.rerun()
     
     if st.button("Click Here To Generate Your Personalised Report"):
         st.session_state.step = 3
@@ -462,4 +642,8 @@ elif st.session_state.step == 3:
             "business_sectors": ','.join(st.session_state.q7)
         })
         st.write(response)
+        
+        if st.button("🔁 Restart"):
+            st.session_state.step == 1
+            st.rerun()
         push_to_sheet()
