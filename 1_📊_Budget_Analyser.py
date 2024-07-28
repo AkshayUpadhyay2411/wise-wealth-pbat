@@ -48,6 +48,7 @@ Plan to start business in any sectors?: {business_sectors}
 
 
 Use the following format, information provided and individual details provided to generate a report: 
+where # represents header level like markdown.
 ```
 ##Income Taxation:
 
