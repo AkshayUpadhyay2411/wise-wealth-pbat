@@ -629,7 +629,7 @@ if st.session_state.step == 1:
                         "I Recieve Rental Income",
                         "I Run a Small or Medium Size Business (SME) and Earn Profits",
                         "I Run a Startup and Hold Equity",
-                        "I Receive or Have Received ESOPs (Employee Stock Options) from my Rmployer",
+                        "I Receive ESOPs (Employee Stock Options) from my Employer",
                         "I am A Professional (Doctor, Lawyer, other Freelancers, etc) who Utilizes Presumptive Taxation (Hint - Select if you fill ITR 4 form while filing ITR)"
                     ],
                     help="Will help us identify key announcements impacting your income taxation"
