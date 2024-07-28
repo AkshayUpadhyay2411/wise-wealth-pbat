@@ -32,7 +32,7 @@ Keep the following in mind:
 3. Try to focus more on highlighting new additions in the budget and key changes. 
 4. Use the individual's unique details and context to answer and eliminate information that is not related to that individual's provided. 
 Keep the language simple to read. Any technical or non-obvious terms should be explained in brief. 
-5. Keep the information direectly relevant to the user information provided, like rental income should only provide information on the rental income.
+5. Keep the information direectly relevant to the user information provided, like if rental income is present for the user you should provide information on the rental income.
 
 
 Here are the details provided by the individual. 
@@ -48,67 +48,52 @@ Plan to start business in any sectors?: {business_sectors}
 
 Use the following format, information provided and individual details provided to generate a report: 
 ```
-## Budget Impact Analysis Report
+##Income Taxation:
 
-###Income Taxation
-#### Key Announcements
-If the individual opts for new tax regime, refer to 'New vs Old Tax Regime' and do the following: 
-- Example of difference in savings if the net income is around 20 Lakhs based on new slab rates and deductions. 
-If the individual opts for old tax regime, highlight that there are no changes overall, but there are potential new savings in new tax regime. Mention the most important changes in new regime broadly. 
-If the individual is a professional who uses presumptine taxation, mention the announcements related to change in presumptive taxation. 
-
-#### Recommendations
-- Refer to 'New vs Old Tax Regime' section to provide recommendations. Keep the recommendations broad and within 2 statements. 
+###Key Announcements:
+Summarize the relevant changes in income taxation policies.
+Highlight any significant updates or new provisions that impact individuals.
+###Recommendations:
+Provide actionable recommendations based on the user's tax regime preferences.
+Ensure recommendations are clear and concise.
 
 
-###Business Taxation
-Skip this section if the user doesn't own any startup or business
+##Business Taxation:
 
-#### Key Announcements
-- Changes in corporate tax rates.
-- Introduction of new incentives for businesses.
-- Modifications to existing business-related deductions or exemptions.
+###Key Announcements:
+Outline the major changes in business taxation policies.
+Include any new incentives, deductions, or exemptions that may affect businesses.
 
-#### Recommendations
-- Highlight how to leverage new business incentives, if any, to reduce tax liability.
+###Recommendations:
+Suggest strategies to leverage new incentives and optimize tax liability.
 
-###Capital Gains Taxation
-Skip section if there are no investments interests. 
-Refer to Capital Gains Tax Changes to get relevant information. 
-Only talk about the asset types that are relevant to the details provided by the individual. Information about asset types not provided by the individual should be avoided. 
-Explain technical terms such as LTCG, STCG, etc where necessary. Keep the explanation brief. 
+##Capital Gains Taxation:
 
-#### Key Announcements
-For each relevant asset type -
-- Changes in capital gains tax rates of the relevant asset types. Mention before and after.
-- Introduction of new investment vehicles with tax benefits for the relevant asset types.
-- Modifications to the taxation of dividends and interest income from the relevant asset types.
+###Key Announcements:
+Detail the changes in capital gains taxation.
+Highlight any new investment vehicles or modifications to existing ones.
 
-#### Recommendations
-- Rebalance your investment portfolio to align with new tax benefits or tax increases. 
-- Suggest new investment options (specific asset types) based on new benefits or tax reductions in the budget.
-- If the individual invests in short durations, highlight that the recent increase in short term capital gain taxes discourages short term trading, and long term investments may be more beneficial with respect to taxation. 
+###Recommendations:
+Provide advice on portfolio adjustments and new investment opportunities.
+Explain the benefits or drawbacks of short-term versus long-term investments.
 
-### Impact on Liabilities
-Skip section if there are no liabilities. 
-Only mention information about the provided liability types provided by the individual. 
+##Impact on Liabilities:
 
-#### Key Announcements
-- Changes affecting the taxation of loans and liabilities.
-- Introduction of new measures to support individuals with loans.
+###Key Announcements:
+Discuss any changes affecting the taxation of loans and liabilities.
+Include new measures or support systems for individuals with loans.
 
-#### Recommendations
-- Review your loan repayment strategy to optimize tax benefits.
-- Consider refinancing or restructuring loans if new benefits are favorable.
+###Recommendations:
+Offer strategies to optimize loan repayment and benefit from new tax provisions.
+Suggest refinancing or restructuring options if advantageous.
 
-###Impact on Investments
-
-#### Key Announcements
-For each sector, provided by the user, mention about government initiatives in the sectors relevant to the individual. Make sure to include any numbers, data, metrics or other specifics available. 
-
-#### Recommendations
-Provide specific sector and stock recommendations. Give priority to sectors provided by the individual. Warn the individual to use self assessment before making any stock investments and clearly mention that this is not an investment advice. 
-```
+##Impact on Investments:
+###Key Announcements:
+Summarize the government initiatives relevant to the user's investment sectors.
+Include specific data, metrics, or updates impacting those sectors.
+###Recommendations:
+Provide sector-specific and stock recommendations.
+Advise caution and emphasize self-assessment before making investment decisions.
 
 Budget 2024-2025 Information(Use this when answering questions):
 ```
@@ -123,26 +108,32 @@ Here is a detailed summary of the unique sectors and their respective highlights
 - **Income from ₹9,00,001 to ₹12,00,000:** 15%
 - **Income from ₹12,00,001 to ₹15,00,000:** 20%
 - **Income above ₹15,00,000:** 30%
+
 ### Deductions and Rebates
 - **Standard Deduction:** ₹75,000 (increased from ₹50,000 last year)
 - **Rebate eligibility under Section 87A:** Increased to ₹7 lakhs (₹25,000 rebate)
+
 ### Surcharge
 - **Maximum Surcharge Rate:** Reduced from 37% to 25% \for incomes over ₹5 crore
 ## Old Tax Regime
+
 ### Income Tax Slabs
 - **Income up to ₹2,50,000:** No tax
 - **Income from ₹2,50,001 to ₹5,00,000:** 5%
 - **Income from ₹5,00,001 to ₹10,00,000:** 20%
 - **Income above ₹10,00,000:** 30%
+
 ### Deductions and Exemptions
 - **Standard Deduction:** ₹50,000 
 - **Deductions and Exemptions:** Various, including HRA, LTA, 80C (up to ₹1.5 lakhs), 80D, 80E, etc.
+
 ## Key Differences
 - **Income Tax Slabs:** The new regime offers a higher threshold for no tax (up to
 ₹3,00,000) compared to the old regime (up to ₹2,50,000). The new regime has more slabs with lower rates up to ₹15,00,000, making it simpler and potentially more beneficial for those with lower deductions.
 - **Deductions and Exemptions:** The old regime allows a variety of deductions and exemptions such as HRA, LTA, standard deduction, 80C, 80D, etc. The new regime largely removes these, offering only the standard deduction and a higher rebate eligibility.
 - **Surcharge:** The new regime has a reduced maximum surcharge rate of 25% \for
 incomes over ₹5 crore, down from 37%.
+
 ## Choosing Between the Two Regimes
 ### Breakeven Threshold
 - **For salary income:**
@@ -407,17 +398,15 @@ revenue goals with startup growth and employee benefits.
 
 **Comparison with Global Standards**:
 - The new policy diverges from global practices where ESOP taxation is typically more
-favorable, aiming to encourage employee ownership and participation. 8. **Future Considerations**:
- - There may be further discussions and potential lobbying for policy amendments to mitigate the adverse effects on the startup sector.
+favorable, aiming to encourage employee ownership and participation. 
+**Future Considerations**:
+- There may be further discussions and potential lobbying for policy amendments to mitigate the adverse effects on the startup sector.
 - Companies might explore alternative incentive structures to maintain employee motivation and satisfaction.
 
-### Conclusion:
 The Budget 2024 proposal to tax ESOP buyback proceeds as dividend income represents a significant shift from the previous capital gains tax treatment, potentially increasing the tax burden for startup employees. While aimed at increasing government revenue, this change could impact the attractiveness of ESOPs and the overall startup ecosystem. Industry stakeholders may seek amendments to ensure a balanced approach that supports both government objectives and the growth of the startup sector.
 —--------
 The Budget 2024 has introduced a significant change by removing the angel tax, a move aimed at supporting startups and fostering innovation. This information is relevant for startup founders and equity holders of unlisted companies.
 Below is a detailed summary of this development:
-
-### Key Highlights:
 
 **Angel Tax Removal**:
 - The angel tax, under Section 56(2)(viib) of the Income Tax Act, taxed investments in startups
@@ -460,16 +449,17 @@ sector.
 more robust and dynamic startup ecosystem in India.
 
 ##Changes in Rental Income taxation.
+
 Applicable to those who receive rental income. Specially affects those running AirBNB type of businesses.
-1. Union Budget 2024 mandates rental income from residential properties to be declared under 'income from house property.'
-2. This change aims to close tax loopholes and prevent tax evasion by property owners.
-3. Rental income can no longer be declared under 'profits and gains of business or
+ - Union Budget 2024 mandates rental income from residential properties to be declared under 'income from house property.'
+ - This change aims to close tax loopholes and prevent tax evasion by property owners.
+ - Rental income can no longer be declared under 'profits and gains of business or
 profession.'
-4. The new rule ensures only standard deductions are available, limiting misuse of
+ - The new rule ensures only standard deductions are available, limiting misuse of
 business expense claims.
-5. The changes standardize tax treatment for rental income, impacting tax calculations and
+ - The changes standardize tax treatment for rental income, impacting tax calculations and
 deductions.
-6. The new rule requiring rental income from residential properties to be declared under
+ - The new rule requiring rental income from residential properties to be declared under
 'income from house property' will be applicable from the financial year 2024-25.
 
 Highlights for Startups and MSMEs Tax Updates:
