@@ -612,7 +612,7 @@ if st.session_state.step == 1:
 
         q4 = st.multiselect("Which of these statements best represents your income sources? (Multi-select that apply) *", [ 
                         "I Receive Salary",
-                        "I Recieve Tental Incon
+                        "I Recieve Rental Income",
                         "I Run a Small or Medium Size Business (SME) and Earn Profits",
                         "I Run a Startup and Hold Equity",
                         "I Receive or Have Received ESOPs (Employee Stock Options) from my Rmployer",
