@@ -471,6 +471,55 @@ long-term economic benefits.
 sector.
 - It addresses the concerns of the startup community and investors, paving the way for a
 more robust and dynamic startup ecosystem in India.
+
+##Changes in Rental Income taxation.
+Applicable to those who receive rental income. Specially affects those running AirBNB type of businesses.
+1. Union Budget 2024 mandates rental income from residential properties to be declared under 'income from house property.'
+2. This change aims to close tax loopholes and prevent tax evasion by property owners.
+3. Rental income can no longer be declared under 'profits and gains of business or
+profession.'
+4. The new rule ensures only standard deductions are available, limiting misuse of
+business expense claims.
+5. The changes standardize tax treatment for rental income, impacting tax calculations and
+deductions.
+6. The new rule requiring rental income from residential properties to be declared under
+'income from house property' will be applicable from the financial year 2024-25.
+
+Highlights for Startups and MSMEs Tax Updates:
+
+Angel Tax Abolished: Starting April 1, 2024
+
+Digital Tax on Foreign Companies Abolished: Starting August 2024 Short-Term Capital Gains Tax: Increased to 12.5% from 10% Long-Term Capital Gains Tax: Increased to 20% from 15%
+
+Skilling & Employment:
+One-month wage for new formal sector employees Incentives for manufacturing sector employers 1,000 ITIs to be upgraded
+Loans for upskilling and higher education
+
+Space Economy:
+INR 1,000 Cr venture fund for spacetech startups
+
+Manufacturing Growth:
+Reduced customs duty on mobile phones, PCBAs, and chargers to 15% New ecommerce exports hub for MSMEs
+Reduced duties on critical minerals and components
+Increased customs duty on importing PCBs for telecom
+
+MSME Credit Push:
+Credit guarantee for machinery/equipment purchases Enhanced MSME credit assessment by public sector banks
+Mudra loan limit doubled to INR 20 Lakh Expansion of TReDS trade invoicing platform New SIDBI branches in major MSME clusters
+Digital Business & Infrastructure:
+Digital infrastructure push in agriculture, finance, e-commerce, education, and health TDS rate on ecommerce reduced from 1% to 0.1%
+(Document - Investments)
+
+##Physical Gold and Sovereign Gold Funds (SGBs)
+For those interested in investments in Gold in any format physical or gold bonds.
+Customs Duty Reduction: Customs duty on gold cut from 15% to 6%, leading to a 4% price drop.
+Increased Demand: Lower gold prices are expected to boost domestic demand.
+Impact on SGBs: Returns from Sovereign Gold Bonds might be negatively impacted due to lower gold prices.
+Physical Gold Tax Changes: Holding period for LTCG reduced to 24 months; LTCG tax rate is now 12.5%.
+Removal of Indexation: Indexation benefits removed for LTCG on gold.
+Gold ETFs/Funds Taxation: STCG taxed at 20%, LTCG at 12.5%, making it more tax-efficient. Investment Strategy: Regular investments in gold recommended over market timing. Standardization of Tax Laws: New tax laws bring consistency across asset classes.
+Positive Industry Reaction: The industry welcomes the changes but awaits long-term trends. Increased Festive Demand: Potential for gold prices to rise during festive seasons despite current cuts.
+
 ```
 """
 
@@ -563,17 +612,18 @@ if st.session_state.step == 1:
 
         q4 = st.multiselect("Which of these statements best represents your income sources? (Multi-select that apply) *", [ 
                         "I Receive Salary",
-                        "I run a Small or Medium size business (SME) and earn profits",
-                        "I run a startup and hold equity",
-                        "I receive or have received ESOPs (Employee Stock Options) from my employer",
-                        "I am a professional (doctor, lawyer, other freelancers, etc) who utilizes presumptive taxation (Hint - Select if you fill ITR 4 form while filing ITR)"
+                        "I Recieve Tental Incon
+                        "I Run a Small or Medium Size Business (SME) and Earn Profits",
+                        "I Run a Startup and Hold Equity",
+                        "I Receive or Have Received ESOPs (Employee Stock Options) from my Rmployer",
+                        "I am A Professional (Doctor, Lawyer, other Freelancers, etc) who Utilizes Presumptive Taxation (Hint - Select if you fill ITR 4 form while filing ITR)"
                     ],
                     help="Will help us identify key announcements impacting your income taxation"
                 )
 
         q5 = st.multiselect("Do you have any liabilities?",
                     [    
-                        ""I hold no loans",
+                        "I hold no loans",
                         "Home loan",
                         "Education or skilling loan",
                         "Business Loan",
@@ -583,11 +633,16 @@ if st.session_state.step == 1:
                     help="Will help us identify key announcements providing relief or affecting interest payments"
                 )
         q6 = st.selectbox("Under what taxation regime do you file your taxes? *",
-                    ["I don't know my regime","New Regime", "Old Regime"],
+                    [
+                      "I Don't Know My Regime",
+                      "New Regime", 
+                      "Old Regime"
+                    ],
                     help="Will help us understand your compliance with tax regulations"
                 )
         q7 = st.multiselect("Do you own or plan to start a business in any of the following sectors",
                     [
+                        "No I don't"
                         "Technology",
                         "Retail",
                         "Manufacturing",
@@ -613,7 +668,7 @@ if st.session_state.step == 1:
             st.rerun()
 
 elif st.session_state.step == 2:
-    st.title("Step 2: Contact Information")
+    st.title("Just one more step before you get the personalised report!")
     
     name = st.text_input("Name")
     phone = st.text_input("Phone Number")
