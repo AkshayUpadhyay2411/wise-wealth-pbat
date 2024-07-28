@@ -1,4 +1,5 @@
 import streamlit as st
+import re
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from langchain_core.prompts import PromptTemplate
@@ -27,10 +28,11 @@ You are a professional Chartered Accountant who consults individuals and helps g
 
 Keep the following in mind: 
 1. Follow the instructions provided for each section in the report format.
-2. Keep it concise, and based on the information in the original documents. Skip sections in the report where there are no meaningful announcements or changes. 
+2. Keep it concise, and based on the information in the original documents. Skip sections which are irrelevant to the input data (skip them completely, no need to show header)
 3. Try to focus more on highlighting new additions in the budget and key changes. 
 4. Use the individual's unique details and context to answer and eliminate information that is not related to that individual's provided. 
 Keep the language simple to read. Any technical or non-obvious terms should be explained in brief. 
+5. Keep the information direectly relevant to the user information provided, like rental income should only provide information on the rental income.
 
 
 Here are the details provided by the individual. 
@@ -48,7 +50,7 @@ Use the following format, information provided and individual details provided t
 ```
 ## Budget Impact Analysis Report
 
-### 1. Income Taxation
+###Income Taxation
 #### Key Announcements
 If the individual opts for new tax regime, refer to 'New vs Old Tax Regime' and do the following: 
 - Example of difference in savings if the net income is around 20 Lakhs based on new slab rates and deductions. 
@@ -59,7 +61,7 @@ If the individual is a professional who uses presumptine taxation, mention the a
 - Refer to 'New vs Old Tax Regime' section to provide recommendations. Keep the recommendations broad and within 2 statements. 
 
 
-### 2. Business Taxation
+###Business Taxation
 Skip this section if the user doesn't own any startup or business
 
 #### Key Announcements
@@ -70,8 +72,7 @@ Skip this section if the user doesn't own any startup or business
 #### Recommendations
 - Highlight how to leverage new business incentives, if any, to reduce tax liability.
 
-
-### 3. Capital Gains Taxation
+###Capital Gains Taxation
 Skip section if there are no investments interests. 
 Refer to Capital Gains Tax Changes to get relevant information. 
 Only talk about the asset types that are relevant to the details provided by the individual. Information about asset types not provided by the individual should be avoided. 
@@ -88,7 +89,6 @@ For each relevant asset type -
 - Suggest new investment options (specific asset types) based on new benefits or tax reductions in the budget.
 - If the individual invests in short durations, highlight that the recent increase in short term capital gain taxes discourages short term trading, and long term investments may be more beneficial with respect to taxation. 
 
-
 ### Impact on Liabilities
 Skip section if there are no liabilities. 
 Only mention information about the provided liability types provided by the individual. 
@@ -101,22 +101,7 @@ Only mention information about the provided liability types provided by the indi
 - Review your loan repayment strategy to optimize tax benefits.
 - Consider refinancing or restructuring loans if new benefits are favorable.
 
-
-### 7. Indirect Taxes
-
-#### Key Announcements
-- Changes in GST rates on goods and services.
-- Introduction of new indirect taxes.
-- Modifications to customs duties and excise duties.
-- Changes in customs duty on specific goods (e.g., electronics, automobiles, raw materials).
-
-#### Recommendations
-- Adjust your budget to accommodate changes in indirect taxes.
-- Explore ways to minimize the impact of increased indirect taxes on your expenses.
-- Consider altering your purchasing decisions if customs duties on certain goods have changed.
-
-
-### 8. Impact on Investments
+###Impact on Investments
 
 #### Key Announcements
 For each sector, provided by the user, mention about government initiatives in the sectors relevant to the individual. Make sure to include any numbers, data, metrics or other specifics available. 
@@ -128,6 +113,133 @@ Provide specific sector and stock recommendations. Give priority to sectors prov
 Budget 2024-2025 Information(Use this when answering questions):
 ```
 Here is a detailed summary of the unique sectors and their respective highlights from the recent 23rd July Budget announcements in India, along with the impact on investments and stock recommendations, including stock tickers:
+
+# Tax Regime Overview
+## New Tax Regime (From FY 2024-25)
+### Income Tax Slabs
+- **Income up to ₹3,00,000:** No tax
+- **Income from ₹3,00,001 to ₹6,00,000:** 5%
+- **Income from ₹6,00,001 to ₹9,00,000:** 10%
+- **Income from ₹9,00,001 to ₹12,00,000:** 15%
+- **Income from ₹12,00,001 to ₹15,00,000:** 20%
+- **Income above ₹15,00,000:** 30%
+### Deductions and Rebates
+- **Standard Deduction:** ₹75,000 (increased from ₹50,000 last year)
+- **Rebate eligibility under Section 87A:** Increased to ₹7 lakhs (₹25,000 rebate)
+### Surcharge
+- **Maximum Surcharge Rate:** Reduced from 37% to 25% \for incomes over ₹5 crore
+## Old Tax Regime
+### Income Tax Slabs
+- **Income up to ₹2,50,000:** No tax
+- **Income from ₹2,50,001 to ₹5,00,000:** 5%
+- **Income from ₹5,00,001 to ₹10,00,000:** 20%
+- **Income above ₹10,00,000:** 30%
+### Deductions and Exemptions
+- **Standard Deduction:** ₹50,000 
+- **Deductions and Exemptions:** Various, including HRA, LTA, 80C (up to ₹1.5 lakhs), 80D, 80E, etc.
+## Key Differences
+- **Income Tax Slabs:** The new regime offers a higher threshold for no tax (up to
+₹3,00,000) compared to the old regime (up to ₹2,50,000). The new regime has more slabs with lower rates up to ₹15,00,000, making it simpler and potentially more beneficial for those with lower deductions.
+- **Deductions and Exemptions:** The old regime allows a variety of deductions and exemptions such as HRA, LTA, standard deduction, 80C, 80D, etc. The new regime largely removes these, offering only the standard deduction and a higher rebate eligibility.
+- **Surcharge:** The new regime has a reduced maximum surcharge rate of 25% \for
+incomes over ₹5 crore, down from 37%.
+## Choosing Between the Two Regimes
+### Breakeven Threshold
+- **For salary income:**
+- Income of ₹7,00,000: Benefit in the new regime if deductions are less than ₹1,50,000.
+- Income of ₹10,00,000: Benefit in the old regime if deductions exceed ₹2,50,000.
+- Income of ₹15,50,000: Benefit in the old regime if deductions exceed ₹3,75,000.
+- **For other income:**
+- Deductions ≤ ₹1.5 lakhs: New regime beneficial.
+- Deductions > ₹3.75 lakhs: Old regime beneficial.
+# Tax Regime Overview
+
+## New Tax Regime (From FY 2024-25)
+
+### Income Tax Slabs
+- **Income up to ₹3,00,000:** No tax
+- **Income from ₹3,00,001 to ₹6,00,000:** 5%
+- **Income from ₹6,00,001 to ₹9,00,000:** 10%
+- **Income from ₹9,00,001 to ₹12,00,000:** 15%
+- **Income from ₹12,00,001 to ₹15,00,000:** 20%
+- **Income above ₹15,00,000:** 30%
+
+### Deductions and Rebates
+- **Standard Deduction:** ₹75,000 (increased from ₹50,000 last year)
+- **Rebate eligibility under Section 87A:** Increased to ₹7 lakhs (₹25,000 rebate)
+
+### Surcharge
+- **Maximum Surcharge Rate:** Reduced from 37% to 25% for incomes over ₹5 crore
+
+## Old Tax Regime
+
+### Income Tax Slabs
+- **Income up to ₹2,50,000:** No tax
+- **Income from ₹2,50,001 to ₹5,00,000:** 5%
+- **Income from ₹5,00,001 to ₹10,00,000:** 20%
+- **Income above ₹10,00,000:** 30%
+
+### Deductions and Exemptions
+- **Standard Deduction:** ₹50,000
+- **Deductions and Exemptions:** Various, including HRA, LTA, 80C (up to ₹1.5 lakhs), 80D, 80E, etc.
+
+## Key Differences
+
+- **Income Tax Slabs:** The new regime offers a higher threshold for no tax (up to ₹3,00,000) compared to the old regime (up to ₹2,50,000). The new regime has more slabs with lower rates up to ₹15,00,000, making it simpler and potentially more beneficial for those with lower deductions.
+- **Deductions and Exemptions:** The old regime allows a variety of deductions and exemptions such as HRA, LTA, standard deduction, 80C, 80D, etc. The new regime largely removes these, offering only the standard deduction and a higher rebate eligibility.
+- **Surcharge:** The new regime has a reduced maximum surcharge rate of 25% for incomes over ₹5 crore, down from 37%.
+
+## Choosing Between the Two Regimes
+
+### Breakeven Threshold
+- **For salary income:**
+  - Income of ₹7,00,000: Benefit in the new regime if deductions are less than ₹1,50,000.
+  - Income of ₹10,00,000: Benefit in the old regime if deductions exceed ₹2,50,000.
+  - Income of ₹15,50,000: Benefit in the old regime if deductions exceed ₹3,75,000.
+
+- **For other income:**
+  - Deductions ≤ ₹1.5 lakhs: New regime beneficial.
+  - Deductions > ₹3.75 lakhs: Old regime beneficial.
+  - Deductions between ₹1.5 to ₹3.75 lakhs: Depends on the specific income level.
+
+## Senior Citizens
+
+### Old Regime
+- **Senior Citizens (60-80 years):** Exemption up to ₹3,00,000.
+- **Super Senior Citizens (above 80 years):** Exemption up to ₹5,00,000.
+
+### New Regime
+- Same slabs as general taxpayers, but with higher standard deduction and rebate eligibility.
+
+### Asset Types
+
+| Asset Type                  | STCG (Earlier) | STCG (Revised) | Holding Period | LTCG (Earlier) | LTCG (Revised) |
+|-----------------------------|----------------|----------------|----------------|----------------|----------------|
+| **Listed stocks and equity MFs/ETFs** | 15%            | 20%            | 12 months      | 10%            | 12.50%         |
+| **Unlisted shares**         | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
+| **Foreign shares**          | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
+| **Debt MFs and ETFs**       | Slab rate      | Slab rate      | NA             | Slab rate      | Slab rate      |
+| **Listed bonds**            | Slab rate      | 20%            | 12 months      | 10%            | 12.50%         |
+| **REITs and InVITs**        | 15%            | 20%            | 12 months      | 10%            | 12.50%         |
+| **Physical real estate**    | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
+| **Gold/silver ETFs**        | Slab rate      | 20%            | 12 months      | Slab rate      | 12.50%         |
+| **Physical gold**           | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
+The recent Budget 2024 announcement introduces significant changes to the tax treatment of ESOP (Employee Stock Ownership Plan) buybacks, impacting startup employees and investors. This is one of the common sources of income for startup employees, and founders.
+
+
+## Announcements for Professionals using presumptive taxation
+###Threshold increase
+- The threshold for professionals eligible for presumptive taxation has been increased from ₹50 lakh to ₹75 lakh. This aims to simplify tax compliance for a larger number of professionals by allowing them to declare income at a prescribed rate without maintaining detailed accounts​ (Taxscan)​​ (Tax Guru)​.
+### Turnover Limit for Businesses
+- For retail businesses under Section 44AD, the turnover limit has been increased from ₹2 crore to ₹3 crore. This change is designed to extend the benefits of the presumptive taxation scheme to more small and medium-sized enterprises​ (Taxscan)​.
+
+
+## Capital Gains Tax Revisions (Effective from 23rd July 2024)
+
+### Minimum Criteria
+- **Criteria for Taxation:** Increased from ₹1,00,000 to ₹1,25,000.
+
+
 ### Infrastructure
 **Key Highlights:**
 - Increased budgetary allocation for capital expenditures with an expected rise of Rs 0.3 trillion, representing a 20% year-over-year growth
@@ -258,131 +370,6 @@ Here is a detailed summary of the unique sectors and their respective highlights
 - Positive impact on startups and established companies in the EV sector due to enhanced incentives and policy support.
 **Stock Recommendations:**
 - No specific stock recommendations were mentioned.
-
-# Tax Regime Overview
-## New Tax Regime (From FY 2024-25)
-### Income Tax Slabs
-- **Income up to ₹3,00,000:** No tax
-- **Income from ₹3,00,001 to ₹6,00,000:** 5%
-- **Income from ₹6,00,001 to ₹9,00,000:** 10%
-- **Income from ₹9,00,001 to ₹12,00,000:** 15%
-- **Income from ₹12,00,001 to ₹15,00,000:** 20%
-- **Income above ₹15,00,000:** 30%
-### Deductions and Rebates
-- **Standard Deduction:** ₹75,000 (increased from ₹50,000 last year)
-- **Rebate eligibility under Section 87A:** Increased to ₹7 lakhs (₹25,000 rebate)
-### Surcharge
-- **Maximum Surcharge Rate:** Reduced from 37% to 25% \for incomes over ₹5 crore
-## Old Tax Regime
-### Income Tax Slabs
-- **Income up to ₹2,50,000:** No tax
-- **Income from ₹2,50,001 to ₹5,00,000:** 5%
-- **Income from ₹5,00,001 to ₹10,00,000:** 20%
-- **Income above ₹10,00,000:** 30%
-### Deductions and Exemptions
-- **Standard Deduction:** ₹50,000 
-- **Deductions and Exemptions:** Various, including HRA, LTA, 80C (up to ₹1.5 lakhs), 80D, 80E, etc.
-## Key Differences
-- **Income Tax Slabs:** The new regime offers a higher threshold for no tax (up to
-₹3,00,000) compared to the old regime (up to ₹2,50,000). The new regime has more slabs with lower rates up to ₹15,00,000, making it simpler and potentially more beneficial for those with lower deductions.
-- **Deductions and Exemptions:** The old regime allows a variety of deductions and exemptions such as HRA, LTA, standard deduction, 80C, 80D, etc. The new regime largely removes these, offering only the standard deduction and a higher rebate eligibility.
-- **Surcharge:** The new regime has a reduced maximum surcharge rate of 25% \for
-incomes over ₹5 crore, down from 37%.
-## Choosing Between the Two Regimes
-### Breakeven Threshold
-- **For salary income:**
-- Income of ₹7,00,000: Benefit in the new regime if deductions are less than ₹1,50,000.
-- Income of ₹10,00,000: Benefit in the old regime if deductions exceed ₹2,50,000.
-- Income of ₹15,50,000: Benefit in the old regime if deductions exceed ₹3,75,000.
-- **For other income:**
-- Deductions ≤ ₹1.5 lakhs: New regime beneficial.
-- Deductions > ₹3.75 lakhs: Old regime beneficial.
-# Tax Regime Overview
-
-## New Tax Regime (From FY 2024-25)
-
-### Income Tax Slabs
-- **Income up to ₹3,00,000:** No tax
-- **Income from ₹3,00,001 to ₹6,00,000:** 5%
-- **Income from ₹6,00,001 to ₹9,00,000:** 10%
-- **Income from ₹9,00,001 to ₹12,00,000:** 15%
-- **Income from ₹12,00,001 to ₹15,00,000:** 20%
-- **Income above ₹15,00,000:** 30%
-
-### Deductions and Rebates
-- **Standard Deduction:** ₹75,000 (increased from ₹50,000 last year)
-- **Rebate eligibility under Section 87A:** Increased to ₹7 lakhs (₹25,000 rebate)
-
-### Surcharge
-- **Maximum Surcharge Rate:** Reduced from 37% to 25% for incomes over ₹5 crore
-
-## Old Tax Regime
-
-### Income Tax Slabs
-- **Income up to ₹2,50,000:** No tax
-- **Income from ₹2,50,001 to ₹5,00,000:** 5%
-- **Income from ₹5,00,001 to ₹10,00,000:** 20%
-- **Income above ₹10,00,000:** 30%
-
-### Deductions and Exemptions
-- **Standard Deduction:** ₹50,000
-- **Deductions and Exemptions:** Various, including HRA, LTA, 80C (up to ₹1.5 lakhs), 80D, 80E, etc.
-
-## Key Differences
-
-- **Income Tax Slabs:** The new regime offers a higher threshold for no tax (up to ₹3,00,000) compared to the old regime (up to ₹2,50,000). The new regime has more slabs with lower rates up to ₹15,00,000, making it simpler and potentially more beneficial for those with lower deductions.
-- **Deductions and Exemptions:** The old regime allows a variety of deductions and exemptions such as HRA, LTA, standard deduction, 80C, 80D, etc. The new regime largely removes these, offering only the standard deduction and a higher rebate eligibility.
-- **Surcharge:** The new regime has a reduced maximum surcharge rate of 25% for incomes over ₹5 crore, down from 37%.
-
-## Choosing Between the Two Regimes
-
-### Breakeven Threshold
-- **For salary income:**
-  - Income of ₹7,00,000: Benefit in the new regime if deductions are less than ₹1,50,000.
-  - Income of ₹10,00,000: Benefit in the old regime if deductions exceed ₹2,50,000.
-  - Income of ₹15,50,000: Benefit in the old regime if deductions exceed ₹3,75,000.
-
-- **For other income:**
-  - Deductions ≤ ₹1.5 lakhs: New regime beneficial.
-  - Deductions > ₹3.75 lakhs: Old regime beneficial.
-  - Deductions between ₹1.5 to ₹3.75 lakhs: Depends on the specific income level.
-
-## Senior Citizens
-
-### Old Regime
-- **Senior Citizens (60-80 years):** Exemption up to ₹3,00,000.
-- **Super Senior Citizens (above 80 years):** Exemption up to ₹5,00,000.
-
-### New Regime
-- Same slabs as general taxpayers, but with higher standard deduction and rebate eligibility.
-
-
-## Announcements for Professionals using presumptive taxation
-###Threshold increase
-- The threshold for professionals eligible for presumptive taxation has been increased from ₹50 lakh to ₹75 lakh. This aims to simplify tax compliance for a larger number of professionals by allowing them to declare income at a prescribed rate without maintaining detailed accounts​ (Taxscan)​​ (Tax Guru)​.
-### Turnover Limit for Businesses
-- For retail businesses under Section 44AD, the turnover limit has been increased from ₹2 crore to ₹3 crore. This change is designed to extend the benefits of the presumptive taxation scheme to more small and medium-sized enterprises​ (Taxscan)​.
-
-
-## Capital Gains Tax Revisions (Effective from 23rd July 2024)
-
-### Minimum Criteria
-- **Criteria for Taxation:** Increased from ₹1,00,000 to ₹1,25,000.
-
-### Asset Types
-
-| Asset Type                  | STCG (Earlier) | STCG (Revised) | Holding Period | LTCG (Earlier) | LTCG (Revised) |
-|-----------------------------|----------------|----------------|----------------|----------------|----------------|
-| **Listed stocks and equity MFs/ETFs** | 15%            | 20%            | 12 months      | 10%            | 12.50%         |
-| **Unlisted shares**         | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
-| **Foreign shares**          | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
-| **Debt MFs and ETFs**       | Slab rate      | Slab rate      | NA             | Slab rate      | Slab rate      |
-| **Listed bonds**            | Slab rate      | 20%            | 12 months      | 10%            | 12.50%         |
-| **REITs and InVITs**        | 15%            | 20%            | 12 months      | 10%            | 12.50%         |
-| **Physical real estate**    | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
-| **Gold/silver ETFs**        | Slab rate      | 20%            | 12 months      | Slab rate      | 12.50%         |
-| **Physical gold**           | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
-The recent Budget 2024 announcement introduces significant changes to the tax treatment of ESOP (Employee Stock Ownership Plan) buybacks, impacting startup employees and investors. This is one of the common sources of income for startup employees, and founders.
 
 ### Key Highlights:
 
@@ -551,22 +538,20 @@ def push_to_sheet():
            ','.join(st.session_state.q7)]
     sheet.append_row(row)
 
-# Initialize session state
+def is_valid_phone(phone):
+    pattern = re.compile(r"^[6789]\d{9}$")
+    return pattern.match(phone)
+
 if 'step' not in st.session_state:
     st.session_state.step = 1
 
-# Step 1: Form with multi-select and select questions
 if st.session_state.step == 1:
-    st.subheader("Cut through budget noise with WiseWealth’s free tailored insights.")
-    st.write("In this AI age, thousands of smart citizens are cutting through Budget 2024 news with ease!")
-    st.write("The FREE AI Assistant from [WiseWealth.me](http://wisewealth.me/) is a groundbreaking way to understand how the budget affects your finances, investments, and taxes. It's fast, simple, and personalized—no two reports are the same.")
-    st.write("Just answer a few questions below and get a tailored summary instantly.")
-
-    st.title("Let's get to know you better")
+    st.subheader("Fast, simple, and personalized.")
+    st.write("Use our FREE AI Assistant to see how Budget 2024 affects your finances, investments, and taxes.")
+    st.write("Answer 7 simple questions below to get your tailored summary instantly!")
 
     with st.form(key='survey_form'):
     
-        # Define the questions
         q1 = st.multiselect("What of these assets are you invested in or plan to invest in? (Multi-select ones that apply)", [
                         "I don’t invest currently",
                         "Listed stocks and equity MFs/ETFs",
@@ -668,19 +653,22 @@ if st.session_state.step == 1:
             st.rerun()
 
 elif st.session_state.step == 2:
-    st.title("Just one more step before you get the personalised report!")
+    st.subheader("Just one more step before you get the personalised report!")
     
     name = st.text_input("Name")
     phone = st.text_input("Phone Number")
 
-    if st.button("🔁 Restart"):
-        st.session_state.step == 1
-        st.rerun()
-    
     if st.button("Click Here To Generate Your Personalised Report"):
-        st.session_state.step = 3
-        st.session_state.name = name
-        st.session_state.phone = phone
+        if not is_valid_phone(phone):
+            st.error("Please enter a valid Indian phone number.")
+        else:
+            st.session_state.step = 3
+            st.session_state.name = name
+            st.session_state.phone = phone
+            st.rerun()
+
+    if st.button("⬅️ Back"):
+        st.session_state.step = 1
         st.rerun()
 
 elif st.session_state.step == 3:
@@ -697,8 +685,4 @@ elif st.session_state.step == 3:
             "business_sectors": ','.join(st.session_state.q7)
         })
         st.write(response)
-        
-        if st.button("🔁 Restart"):
-            st.session_state.step == 1
-            st.rerun()
         push_to_sheet()
