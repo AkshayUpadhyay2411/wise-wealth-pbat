@@ -548,7 +548,7 @@ if st.session_state.step == 1:
                         "Physical real estate",
                         "Gold/silver ETFs",
                         "Physical Gold",
-                        "SGBs(Sovereign Gold Bonds",
+                        "SGBs (Sovereign Gold Bonds)",
                         "Cryptocurrency"
                     ],
                     help="Will help us identify key announcements impacting your investments"
