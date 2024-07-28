@@ -209,6 +209,7 @@ incomes over ₹5 crore, down from 37%.
 | **Physical real estate**    | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
 | **Gold/silver ETFs**        | Slab rate      | 20%            | 12 months      | Slab rate      | 12.50%         |
 | **Physical gold**           | Slab rate      | Slab rate      | 24 months      | 20% with indexation | 12.50%         |
+| **Cryptocurrency**           | 30%      | 30%      | Not relevant      | 30% | 30%         |
 The recent Budget 2024 announcement introduces significant changes to the tax treatment of ESOP (Employee Stock Ownership Plan) buybacks, impacting startup employees and investors. This is one of the common sources of income for startup employees, and founders.
 
 
@@ -611,7 +612,7 @@ if st.session_state.step == 1:
                 )
         q7 = st.multiselect("Do you own or plan to start a business in any of the following sectors",
                     [
-                        "No I don't"
+                        "No I don't",
                         "Technology",
                         "Retail",
                         "Manufacturing",
