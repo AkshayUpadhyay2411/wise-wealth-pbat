@@ -21,7 +21,6 @@ os.environ["GROQ_API_KEY"] = st.secrets["api_keys"]["GROQ_API_KEY"]
 model_name = "gpt-4o-mini"
 llm = ChatOpenAI(model_name=model_name)
 # llm = ChatGroq(model_name="llama3-70b-8192")
-
 template = """\
 You are a professional Chartered Accountant who consults individuals and helps give actionable advice, reviews, and recommendations. I will later provide information about the recently announced Budget 2024-2025 by the Indian government. Using only that information and using every detail of the individual provided to you, you will generate a report using the given format, highlighting key announcements and changes that they need to be aware of, in context of taxation. 
 
@@ -48,52 +47,45 @@ Plan to start business in any sectors?: {business_sectors}
 
 
 Use the following format, information provided and individual details provided to generate a report: 
-where # represents header level like markdown.
+Format the report using markdown, also add an index on top.
 ```
 ##Income Taxation:
-
-###Key Announcements:
 Summarize the relevant changes in income taxation policies.
 Highlight any significant updates or new provisions that impact individuals.
-###Recommendations:
+
+Recommendations:
 Provide actionable recommendations based on the user's tax regime preferences.
 Ensure recommendations are clear and concise.
 
 
 ##Business Taxation:
-
-###Key Announcements:
 Outline the major changes in business taxation policies.
 Include any new incentives, deductions, or exemptions that may affect businesses.
 
-###Recommendations:
+Recommendations:
 Suggest strategies to leverage new incentives and optimize tax liability.
 
 ##Capital Gains Taxation:
-
-###Key Announcements:
 Detail the changes in capital gains taxation.
 Highlight any new investment vehicles or modifications to existing ones.
 
-###Recommendations:
+Recommendations:
 Provide advice on portfolio adjustments and new investment opportunities.
 Explain the benefits or drawbacks of short-term versus long-term investments.
 
 ##Impact on Liabilities:
-
-###Key Announcements:
 Discuss any changes affecting the taxation of loans and liabilities.
 Include new measures or support systems for individuals with loans.
 
-###Recommendations:
+Recommendations:
 Offer strategies to optimize loan repayment and benefit from new tax provisions.
 Suggest refinancing or restructuring options if advantageous.
 
 ##Impact on Investments:
-###Key Announcements:
 Summarize the government initiatives relevant to the user's investment sectors.
 Include specific data, metrics, or updates impacting those sectors.
-###Recommendations:
+
+Recommendations:
 Provide sector-specific and stock recommendations.
 Advise caution and emphasize self-assessment before making investment decisions.
 
@@ -677,4 +669,7 @@ elif st.session_state.step == 3:
             "business_sectors": ','.join(st.session_state.q7)
         })
         st.write(response)
+        if st.button("⬅️ Back"):
+          st.session_state.step = 1
+          st.rerun()
         push_to_sheet()
