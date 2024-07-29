@@ -9,6 +9,11 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_groq import ChatGroq
 
+st.set_page_config(
+        page_title='WiseWealth - Budget Analyser',
+        page_icon="resources/WW_Logo.svg"                  
+        )
+
 OPENAI_API = st.secrets["api_keys"]["OPENAI_API"]
 os.environ["OPENAI_API_KEY"] = OPENAI_API
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
