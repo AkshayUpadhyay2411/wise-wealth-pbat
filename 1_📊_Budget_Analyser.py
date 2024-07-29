@@ -586,7 +586,7 @@ if st.session_state.step == 1:
 
     with st.form(key='survey_form'):
     
-        q1 = st.multiselect("What of these assets are you invested in or plan to invest in? (Multi-select ones that apply)", [
+        q1 = st.multiselect("Which of these assets are you invested in or plan to invest in? (Multi-select ones that apply)", [
                         "I don’t invest currently",
                         "Listed stocks and equity MFs/ETFs",
                         "Unlisted shares",
