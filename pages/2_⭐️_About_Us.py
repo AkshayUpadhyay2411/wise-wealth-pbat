@@ -1,6 +1,4 @@
 import streamlit as st
-
-st.sidebar.image("WW_Logo.svg")
 st.title("About Wise Wealth")
 st.write("Wise Wealth is dedicated to empowering investors through the latest AI technologies, offering bespoke tools designed to provide deep insights and advanced analysis. Our mission is to help you navigate the complexities of the financial markets with confidence and precision.")
 
